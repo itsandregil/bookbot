@@ -3,7 +3,7 @@ def get_num_words(text: str) -> str:
     return len(words)
 
 
-def count_characters(text: str) -> dict[str, str]:
+def get_chars_dict(text: str) -> dict[str, str]:
     counts = {}
 
     for char in text:
@@ -16,17 +16,17 @@ def count_characters(text: str) -> dict[str, str]:
     return counts
 
 
-def sort_on(items):
-    return items["num"]
+def sort_on(d):
+    # Sort by the dictionary key "num"
+    return d["num"]
 
 
-def get_sorted_chars(chars_counts: dict[str, str]) -> list[dict[str, str]]:
+def chars_dict_to_sorted_list(chars_counts: dict[str, str]) -> list[dict[str, str]]:
     chars_list = []
 
-    # Populate the list of counts
+    # Populate the list of counts and sort them
     for char, count in chars_counts.items():
         chars_list.append({"char": char, "num": count})
-
-    # Sort values by their count
     chars_list.sort(reverse=True, key=sort_on)
+
     return chars_list
